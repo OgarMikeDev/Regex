@@ -15,9 +15,11 @@ public class Main5 {
         Matcher matcher = pattern.matcher(text);
 
         while (matcher.find()) {
-            int start = matcher.start();
-            int end = matcher.end();
-            String link = text.substring(start, end);
+//            int start = matcher.start();
+//            int end = matcher.end();
+//            String link = text.substring(start, end);
+//            System.out.println(link);
+            String link = matcher.group();
             System.out.println(link);
         }
     }
