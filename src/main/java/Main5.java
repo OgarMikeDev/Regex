@@ -15,10 +15,13 @@ public class Main5 {
         Matcher matcher = pattern.matcher(text);
 
         while (matcher.find()) {
+            //1-й способ вырезать нужную подстроку
 //            int start = matcher.start();
 //            int end = matcher.end();
 //            String link = text.substring(start, end);
 //            System.out.println(link);
+
+            //2-й способ вырезать нужную подстроку
             String link = matcher.group();
             System.out.println(link);
         }
