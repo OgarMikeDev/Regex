@@ -1,33 +1,27 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class Main6 {
     public static String listIndexSpace;
 
     public static void main(String[] args) {
-        String firstText = "And Back Client Day Eminem Flight";
-
+        String firstText = "And Back Client";
         listIndexSpace = "";
         System.out.println(sequentialWordsNumbers(firstText));
     }
 
     public static String sequentialWordsNumbers(String text) {
-        StringBuilder result = new StringBuilder();
-        int wordCount = 0;
-
-
-        for (int index = 0; index < text.length(); ) {
-            int spaceIndex = text.indexOf(' ', index);
-            if (spaceIndex == -1) {
-                result.append("(").append(wordCount + 1).append(") ").append(text.substring(index));
-                break;
-            } else {
-                result.append("(").append(wordCount + 1).append(") ").append(text.substring(index, spaceIndex)).append(" ");
-                wordCount++;
+        StringBuilder allWords = new StringBuilder();
+        int numberWord = 0;
+        for (int currentIndex = 0; currentIndex < text.length();) {
+            int indexSpace = text.indexOf(" ", currentIndex);
+            if (indexSpace != -1) {
+                allWords.append("(" + (numberWord + 1) + ") " + text.substring(currentIndex, indexSpace) + " ");
+                currentIndex = indexSpace + 1;
+                numberWord++;
+            } else if (indexSpace == -1) {
+                allWords.append("(" + (numberWord + 1) + ") " + text.substring(currentIndex));
+                return String.valueOf(allWords);
             }
-            index = spaceIndex + 1;
         }
-
-        return result.toString();
+        return String.valueOf(allWords);
     }
+
 }
